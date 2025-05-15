@@ -9,7 +9,16 @@ import SwiftUI
 
 struct RecipeListView: View {
     var body: some View {
-        
+        NavigationStack {
+            ScrollView {
+                HeaderView()
+                LazyVStack() {
+                    ForEach(0..<10) {_ in
+                        RecipeCardView()
+                    }
+                }
+            }
+        }
     }
 }
 
