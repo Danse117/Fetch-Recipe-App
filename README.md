@@ -2,13 +2,21 @@
 
 ## TODO
 [] Fix splashscreen animation
+
 [] Create viewModel for Recipe Card to accept data from API call
+
 [] Create viewModel and View for When user clicks on Recipe Card to open FullRecipeCard (Slides up and shows larger picture + youtube video and extra details)
+
 [] RecipeList: Add refresh to recipe list
+
 [] Create TabBar
+
 [] Add filtering by cuisine to header
+
 [] Account for network usage
+
 [] Create tests
+
 [] Complete questions and answers at the bottom of the README
 
 
@@ -69,18 +77,18 @@ youtube_url        string    no    The URL of the recipe's YouTube video.
 ```
 ---
 
-Answer and questions section:
+## Answer and questions section:
 
-#### Summary: Include screen shots or a video of your app highlighting its features
+**Summary:** Include screen shots or a video of your app highlighting its features
 
-#### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
+**Focus Areas:** What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 
-#### Time Spent: Approximately how long did you spend working on this project? How did you allocate your time?
+**Time Spent:** Approximately how long did you spend working on this project? How did you allocate your time?
 
-#### Trade-offs and Decisions: Did you make any significant trade-offs in your approach?
+**Trade-offs and Decisions:** Did you make any significant trade-offs in your approach?
 
-#### Weakest Part of the Project: What do you think is the weakest part of your project?
+**Weakest Part of the Project:** What do you think is the weakest part of your project?
 
-#### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered
+**Additional Information:** Is there anything else we should know? Feel free to share any insights or constraints you encountered
 
 ---
