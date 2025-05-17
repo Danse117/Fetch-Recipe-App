@@ -6,36 +6,37 @@
 //
 
 import SwiftUI
-import UIKit
 struct SplashScreenView: View {
     @State var isLoading = false
     
     var body: some View {
-        HStack(){
-            if self.isLoading{
+        ZStack {
+            if self.isLoading {
                 RecipeListView()
+                    .transition(.opacity)
             } else {
-                ZStack{
-                    Rectangle()
-                        .fill(Color.brown)
-                        .ignoresSafeArea()
-                    VStack{
-                        Image(systemName: "frying.pan.fill")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.white)
-                        
-                        Text("Fetch Recipe Book").font(.title).foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .padding()
-                    }
+                Rectangle()
+                    .fill(Color.brown)
+                    .ignoresSafeArea()
+                VStack {
+                    Image(systemName: "frying.pan.fill")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.white)
+                    
+                    Text("Fetch Recipe Book")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .padding()
                 }
+                .transition(.opacity)
             }
-        }        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
-                withAnimation(.easeOut(duration: 2)){
-                    isLoading = true;
-                }
+        }
+        .animation(.easeInOut(duration: 1.0), value: isLoading)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                isLoading = true
             }
         }
     }

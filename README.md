@@ -1,13 +1,13 @@
 #  Fetch Recipe Take Home Test
 
 ## TODO
-[] Fix splashscreen animation
+[x] Fix splashscreen animation
 
-[] Create viewModel for Recipe Card to accept data from API call
+[x] Create viewModel for Recipe Card to accept data from API call
 
 [] Create viewModel and View for When user clicks on Recipe Card to open FullRecipeCard (Slides up and shows larger picture + youtube video and extra details)
-
-[] RecipeList: Add refresh to recipe list
+    - Build view and use RecipeCardViewModel for getting recipe names and such
+[x] RecipeList: Add refresh to recipe list
 
 [] Create TabBar
 

@@ -9,38 +9,66 @@
 import SwiftUI
 
 struct RecipeCardView: View {
-    // let recipe: Recipe
-    // @StateObject var viewModel = RecipeCardViewModel()
-    var cardShape: RoundedRectangle { RoundedRectangle(cornerRadius: 20) }
+    @StateObject var viewModel: RecipeCardViewModel
+    var cardShape: RoundedRectangle { RoundedRectangle(cornerRadius: 12) }
+    
+    init(recipe: Recipe) {
+        _viewModel = StateObject(wrappedValue: RecipeCardViewModel(recipe: recipe))
+    }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8){
-            HStack{
-                Image(systemName: "frying.pan.fill")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                Text("Recipe Name")
-            }
+        // Stack holding entire card
+        VStack(alignment: .leading, spacing: 12) {
+            // Stack holding image, recipe name and quisine name
             
-            Text("Recipe Photo")
-            Text("Quisine Type")
+            HStack(spacing: 16) {
+                
+                // Small image of the recipe
+                if let imageURL = viewModel.smallPhoto {
+                    AsyncImage(url: imageURL) {
+                        image in image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 80, height: 80)
+                    }
+                }
+                
+                // Name and cuisine name of the recipe
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(viewModel.recipeName)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                    
+                    Text(viewModel.cuisineName)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
         }
-        .padding()
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(8)
-        .containerShape(cardShape)
+        .background(Color(.brown).opacity(0.2))
+        .clipShape(cardShape)
+        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+        .frame(width: 380, height: 112, alignment: .leading)
+    }
         
-        
+}
+    
+
+
+
+
+struct RecipeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        RecipeCardView(recipe: dev.recipe)
     }
 }
 
-/*
-struct RecipeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeCardView()
-    }
-}
-*/
-#Preview {
-    RecipeCardView()
-}
