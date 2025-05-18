@@ -13,6 +13,7 @@ struct RecipeListView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
+                // Entire list of fetched recipes
                 LazyVStack(spacing: 16) {
                     ForEach(viewModel.recipes) { recipe in
                         RecipeCardView(recipe: recipe)
@@ -22,19 +23,26 @@ struct RecipeListView: View {
                 .padding(.horizontal, 24)
                 .padding(.vertical)
                 
+                // Display alert
+                .alert(item: $viewModel.alertItem) { item in
+                    Alert(
+                    title: Text(item.title),
+                    message: Text(item.message),
+                    dismissButton: .default(Text("OK"))
+                    )
+                }
+                
+                // User swipes up to refresh page
+                .refreshable {
+                    await viewModel.fetchRecipes()
+                }
             }
             
-            // Refresh function
-            // User swipes up for refreshing
-            .refreshable {
-                await viewModel.fetchRecipes()
-            }
-    
-            // Header
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.brown, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
+                // Header
                 ToolbarItem(placement: .navigation) {
                     Text("Recipe Book!")
                         .foregroundStyle(.white)
@@ -42,11 +50,26 @@ struct RecipeListView: View {
                         .fontWeight(.bold)
                         .padding(.horizontal, 8)
                 }
+                // Filtering button
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button("All Cuisines") {
+                            viewModel.applyFilter(cuisine: nil)
+                        }
+                        ForEach(viewModel.uniqueCuisines, id: \.self) { cuisine in
+                            Button(cuisine) {
+                                viewModel.applyFilter(cuisine: cuisine)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "line.horizontal.3.decrease.circle.fill")
+                            .foregroundStyle(.white)
+                    }
+                }
             }
         }
     }
 }
-
 
 
 

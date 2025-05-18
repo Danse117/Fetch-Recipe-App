@@ -11,10 +11,26 @@ struct TabBarView: View {
     @State private var selectedTabIndex: Int = 0
 
     var body: some View {
-        TabView(selection: $selectedTabIndex){
+        TabView(selection: $selectedTabIndex) {
+            // Recipe List View
+            NavigationStack {
+                RecipeListView()
+            }
+            .tabItem {
+                Label("Recipes", systemImage: "fork.knife")
+            }
+            .tag(0)
             
+            // Settings view
+            NavigationStack {
+                SettingsView()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gear")
+            }
+            .tag(1)
         }
-        .foregroundStyle(Color.brown)
+        .tint(.brown)
     }
 }
 

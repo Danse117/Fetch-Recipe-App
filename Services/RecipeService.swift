@@ -17,13 +17,13 @@ class RecipeService {
         
         // Load the data
         let (data, _) = try await URLSession.shared.data(from: url)
-        // Decode the JSON into Recipe Model
+    
+        // Response from data
         let response = try JSONDecoder().decode(RecipeResponse.self, from: data)
         return response.recipes
     }
 }
 
-// Response structure to match the JSON
 struct RecipeResponse: Codable {
     let recipes: [Recipe]
 }

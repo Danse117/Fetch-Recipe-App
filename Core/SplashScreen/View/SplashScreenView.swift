@@ -35,6 +35,7 @@ struct SplashScreenView: View {
         }
         .animation(.easeInOut(duration: 1.0), value: isLoading)
         .onAppear {
+            // Main view is shown after 2.5 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isLoading = true
             }

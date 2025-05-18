@@ -23,16 +23,20 @@ final class RecipeCardViewModel: ObservableObject {
         recipe.cuisineName
     }
     
-    var largePhoto: URL? {
-        URL(string: recipe.largePhotoURL)
-    }
-    
+    // Below are the optional fields that might not appear
     var smallPhoto: URL? {
-        URL(string: recipe.smallPhotoURL)
+        guard let urlString = recipe.smallPhotoURL else { return nil }
+        return URL(string: urlString)
+    }
+
+    var largePhoto: URL? {
+        guard let urlString = recipe.largePhotoURL else { return nil }
+        return URL(string: urlString)
     }
     
     var sourceURL: URL? {
-        URL(string: recipe.sourceURL)
+        guard let raw = recipe.sourceURL else { return nil }
+        return URL(string: raw)
     }
     
     var youtubeURL: URL? {

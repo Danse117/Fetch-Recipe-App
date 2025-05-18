@@ -1,24 +1,23 @@
 #  Fetch Recipe Take Home Test
 
 ## TODO
-[x] Fix splashscreen animation
+- [x] Fix splashscreen animation
 
-[x] Create viewModel for Recipe Card to accept data from API call
+- [x] Create viewModel for Recipe Card to accept data from API call
 
-[] Create viewModel and View for When user clicks on Recipe Card to open FullRecipeCard (Slides up and shows larger picture + youtube video and extra details)
+- [x] Create viewModel and View for When user clicks on Recipe Card to open FullRecipeCard (Slides up and shows larger picture + youtube video and extra details)
     - Build view and use RecipeCardViewModel for getting recipe names and such
-[x] RecipeList: Add refresh to recipe list
+- [x] RecipeList: Add refresh to recipe list
 
-[] Create TabBar
+- [x] Create TabBar
 
-[] Add filtering by cuisine to header
+- [x] Add filtering by cuisine to header
 
-[] Account for network usage
+- [x] Account for network usage
 
-[] Create tests
+- [x] Create tests
 
-[] Complete questions and answers at the bottom of the README
-
+- [x] Complete questions and answers at the bottom of the README
 
 ---
 
@@ -58,7 +57,6 @@ source_url         string    no    The URL of the recipe's original website.
 youtube_url        string    no    The URL of the recipe's YouTube video.
 ```
 
----
 ```
 {
     "recipes": [
@@ -80,15 +78,47 @@ youtube_url        string    no    The URL of the recipe's YouTube video.
 ## Answer and questions section:
 
 **Summary:** Include screen shots or a video of your app highlighting its features
+<img src="app_walkthrough.gif" width="400" height="600" />
 
 **Focus Areas:** What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
+<p>
+    I focused on three main areas while building the app:
+
+* **UI/UX:** I prioritized creating a clean, intuitive interface to elevate the user experience. Since this is a relatively simple app in terms of features, I wanted to ensure that users could easily navigate and visually engage with the content. Each recipe is clearly presented in its own card, and I added a filter button to allow users to quickly sort recipes by cuisine, making the experience more interactive and personalized.
+   
+* **Error Handling:** I put significant effort into error handling, both for debugging and for end-user clarity. I structured my alerts using a reusable AlertItem model to avoid repetitive code, and I made sure to distinguish between different error states (malformed JSON, empty results, or network failure) rather than using a generic error message. This made the app feel more reliable and transparent from the user’s perspective.
+
+* **Image Caching:** This was my first time implementing manual disk-based image caching, and it was a key learning experience. In past projects, I relied on Firebase to handle image retrieval and storage, so managing caching myself gave me insight into how performance and bandwidth can be improved significantly. By caching images locally, the app avoids unnecessary downloads and loads content much faster when reopened, which directly improves the user experience.
+    </p>
 
 **Time Spent:** Approximately how long did you spend working on this project? How did you allocate your time?
-
+  * In total I spent approximately 9 to 11 hours total.
+    * 30 min to an hour: Planning UI/Structuring project
+    * 2 hours in building frontend interface (I kept changing the intial direction I wanted to take)
+    * 4 hours spent learning/implmenting API response, caching to disk/ and getting viewModels to work as intended
+    * 2 hours spent learning how to implement tests
+    * 1 hour spent answering these questions
+  * Because of me creating the app around the time of my finals, it was difficult for me to dedicate individual sessions to work on the project, so I had to split my time throughout a week.
+    
 **Trade-offs and Decisions:** Did you make any significant trade-offs in your approach?
+        <p>
+        Yes, I made a few intentional trade-offs in order to focus on areas that would have the most impact for this project. One example was choosing not to implement extensive unit testing for the UI layer or view models, and instead focusing my tests on the core logic, such as the data fetching and image caching, as they were curcial parts of the requirements and application
+        </p>
+        <p>
+        Another trade-off was prioritizing a clean and responsive interface over advanced functionality, like saving favorite recipes or offline support. Given the limited scope and timeline, I decided it was more important to deliver a polished, bug-free experience for the features that were already in place.
+        </p>
 
 **Weakest Part of the Project:** What do you think is the weakest part of your project?
+<p>
+    I think the weakest part of the project is the limited user functionality beyond browsing and filtering. The app doesn't currently allow users to interact with recipes beyond viewing them, for example, saving favorites, sharing links, or leaving notes. If I had more time, I would have explored adding lightweight user interactions or persistent state features to make the app feel more engaging and useful.
+</p>
 
 **Additional Information:** Is there anything else we should know? Feel free to share any insights or constraints you encountered
+   <p>
+        I'm still actively learning Swift, so this project gave me a chance to dive deeper into areas I hadn’t worked with before, like manual image caching, error handling architecture, and disk-based data management. Building something end-to-end helped reinforce what I’ve been learning and pushed me to write cleaner, more intentional code.
+    </p>
+    <p>
+        Thanks again for the opportunity, this was a fun and challenging take-home that pushed me to think more deeply about efficiency and code quality.
+    </p>
 
 ---
