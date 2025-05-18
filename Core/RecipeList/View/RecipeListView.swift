@@ -64,7 +64,8 @@ struct RecipeListView: View {
                     }
                 }
             }
-        }                // User swipes up to refresh page
+        }
+        // User swipes up to refresh page
         .refreshable {
             await viewModel.fetchRecipes()
         }
