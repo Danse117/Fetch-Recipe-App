@@ -22,7 +22,7 @@ struct RecipeListView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 24)
                 .padding(.vertical)
-                
+
                 // Display alert
                 .alert(item: $viewModel.alertItem) { item in
                     Alert(
@@ -32,10 +32,7 @@ struct RecipeListView: View {
                     )
                 }
                 
-                // User swipes up to refresh page
-                .refreshable {
-                    await viewModel.fetchRecipes()
-                }
+
             }
             
             .navigationBarTitleDisplayMode(.inline)
@@ -67,6 +64,9 @@ struct RecipeListView: View {
                     }
                 }
             }
+        }                // User swipes up to refresh page
+        .refreshable {
+            await viewModel.fetchRecipes()
         }
     }
 }
