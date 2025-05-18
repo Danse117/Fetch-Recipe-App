@@ -19,7 +19,7 @@ final class ImageCacheManagerTests: XCTestCase {
         let image = UIImage(systemName: "photo")!
         let data = image.pngData()!
         
-        // Save and load to and from disk
+        // Save and load, to and from disk
         manager.saveImageToDisk(data, for: url)
         let loadedImage = manager.loadImageFromDisk(for: url)
         
