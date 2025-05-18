@@ -13,7 +13,7 @@ import SwiftUI
 @MainActor
 class ImageLoader: ObservableObject {
     
-    /// Published image used by the UI
+    // Published image used by the UI
     @Published var image: UIImage? = nil
     
     // The URL of the image to load

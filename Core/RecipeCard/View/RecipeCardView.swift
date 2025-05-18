@@ -76,6 +76,7 @@ struct RecipeCardView: View {
         .onTapGesture {
             showingFullRecipe = true
         }
+        // Sheet for FullRecipeCardView
         .sheet(isPresented: $showingFullRecipe) {
             FullRecipeCardView(recipe: viewModel.recipe)
         }

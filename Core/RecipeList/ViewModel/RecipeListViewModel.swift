@@ -53,7 +53,7 @@ final class RecipeListViewModel: ObservableObject {
             recipes = []
             allRecipes = []
             
-            // Catch network error
+        // Catch network error
         } catch {
             self.error = error
             alertItem = AlertItem(title: "Fetch Failed", message: "An unexpected error occurred while fetching the recipes.")

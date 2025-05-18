@@ -11,6 +11,7 @@ import SwiftUI
 final class RecipeCardViewModel: ObservableObject {
     @Published var recipe: Recipe
     
+    // Required fields
     init(recipe: Recipe) {
         self.recipe = recipe
     }
@@ -23,7 +24,7 @@ final class RecipeCardViewModel: ObservableObject {
         recipe.cuisineName
     }
     
-    // Below are the optional fields that might not appear
+    // Optional fields that might not appear
     var smallPhoto: URL? {
         guard let urlString = recipe.smallPhotoURL else { return nil }
         return URL(string: urlString)
